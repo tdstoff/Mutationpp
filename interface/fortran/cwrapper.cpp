@@ -325,6 +325,12 @@ double NAME_MANGLE(mixture_h_mass)()
 }
 
 //==============================================================================
+double NAME_MANGLE(mixture_hminush0_mass)()
+{
+    return p_mix->mixtureHMinusH0Mass();
+}
+
+//==============================================================================
 double NAME_MANGLE(mixture_e_mass)()
 {
     return p_mix->mixtureEnergyMass();

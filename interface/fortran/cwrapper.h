@@ -306,6 +306,12 @@ void NAME_MANGLE(species_s_mass)(double *const s);
 double NAME_MANGLE(mixture_h_mass)();
 
 /**
+ * Returns the mixture enthalpy in J/kg given the mixture temperature and
+ * species mass fractions.
+ */
+double NAME_MANGLE(mixture_hminush0_mass)();
+
+/**
  * Return the mixture total energy in J/kg given temperature, density, and mass
  * fractions.
  */

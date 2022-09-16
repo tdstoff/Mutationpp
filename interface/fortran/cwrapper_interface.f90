@@ -86,6 +86,9 @@ module mutationpp
         
         real(kind=8) function mpp_mixture_h_mass()
         end function
+
+        real(kind=8) function mpp_mixture_hminush0_mass()
+        end function
         
         real(kind=8) function mpp_mixture_e_mass()
         end function
