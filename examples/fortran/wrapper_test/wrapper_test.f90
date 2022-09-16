@@ -67,6 +67,7 @@ program main
     write(*,'(A12)',advance='no') "Cp(J/kg-K)  "
     write(*,'(A12)',advance='no') "Cv(J/kg-K)  "
     write(*,'(A12)',advance='no') "h(J/kg)     "
+    write(*,'(A12)',advance='no') "h-h0(J/kg)  "
     write(*,'(A12)',advance='no') "e(J/kg)     "
     write(*,*)
     
