@@ -32,7 +32,7 @@ program main
     character(len=12) :: species
     integer :: i, j, ne, ns, nr, var
     
-    real(8) :: T, P, rho, n, cp, cv, h, mw, e
+    real(8) :: T, P, rho, n, cp, cv, h, mw, e, hminush0
     real(8), dimension(:), allocatable :: species_x, wdot, species_y
     real(8), dimension(:), allocatable :: mwi
     
@@ -82,15 +82,16 @@ program main
             write(*,'(E12.4)',advance='no') species_x(j)
         end do
              
-        n   = mpp_number_density()
-        rho = mpp_density()
-        mw  = mpp_mixture_mw()
-        cp  = mpp_mixture_frozen_cp_mass()
-        cv  = mpp_mixture_frozen_cv_mass()
-        h   = mpp_mixture_h_mass()
-        e   = mpp_mixture_e_mass()
+        n        = mpp_number_density()
+        rho      = mpp_density()
+        mw       = mpp_mixture_mw()
+        cp       = mpp_mixture_frozen_cp_mass()
+        cv       = mpp_mixture_frozen_cv_mass()
+        h        = mpp_mixture_h_mass()
+        hminush0 = mpp_mixture_hminush0_mass()
+        e        = mpp_mixture_e_mass()
         
-        write(*,'(8E12.4)') P, rho, n, mw, cp, cv, h, e
+        write(*,'(9E12.4)') P, rho, n, mw, cp, cv, h, hminush0, e
     end do
     
     ! Clean up the memory stored in the mutation++ library
