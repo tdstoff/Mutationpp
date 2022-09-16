@@ -372,7 +372,33 @@ double Thermodynamics::numberDensity() const
     double Th = mp_state->T();
     double Te = mp_state->Te();
     double P  = mp_state->P();
-    return P / (KB * (Th + Xe*(Te - Th)));
+    //
+    // Liquid density correction
+    double gamma = 2.35;
+    double Cv = 1816.0;
+    double PInf = 1.0e9;
+    double q = -1167.0e3;
+    double qPrime = 0.0;
+    double Mw = mixtureMw();
+    double X[nGas()];
+    double XGas = 0.0;
+    double XCondensed = 0.0;
+    for (int i = 0; i < nGas(); ++i)
+    {
+        X[i] = mp_state->X()[i];
+        XGas += X[i];
+    }
+    for (int i = nGas(); i < nSpecies(); ++i)
+    {
+        X[i] = mp_state->X()[i];
+        XCondensed += X[i];
+    }
+    //
+    // Final result
+    double numberDensityGas = P / (KB * (Th + Xe*(Te - Th)));
+    double numberDensityCondensed = NA / (Mw * (gamma - 1.0)*Cv*Th/(P + PInf) );
+    return XGas*numberDensityGas + XCondensed*numberDensityCondensed;
+    cout << "getting density..." << endl;
 }
 
 //==============================================================================
