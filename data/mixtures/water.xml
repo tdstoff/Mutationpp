@@ -1,18 +1,4 @@
 <!-- Pure water -->
-<!-- <mixture thermo_db="NASA-7" state_model="EquilTP"> -->
-
-<!--     <species> -->
-<!--         <!-\- H2O H2O(L) -\-> -->
-<!--         H2O(L) -->
-<!--     </species> -->
-
-<!--     <element_compositions default="water"> -->
-<!--         <!-\- <composition name="water"> H2O(L):0.99999 H2O:1.0e-5 </composition> -\-> -->
-<!--         <!-\- <composition name="water"> H2O(L):0.5, H2O:0.5 </composition> -\-> -->
-<!--         <composition name="water"> H2O(L):1.0 </composition> -->
-<!--     </element_compositions> -->
-
-<!-- </mixture> -->
 <mixture thermo_db="NASA-7" state_model="EquilTP" mechanism="none">
 
 <species>
